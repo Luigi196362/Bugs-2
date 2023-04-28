@@ -8,35 +8,41 @@ import graphene
 import json
 
 # Create your tests here.
-from autos.schema import schema
-from autos.models import Auto
+from Insectos.schema import schema
+from Insectos.models import Insecto
 
-AUTOS_QUERY = '''
+INSECTOS_QUERY = '''
  {
-   autos {
+   Insecto {
      id
-     descripcion
-     modelo
-     combustible
-     transmision
+     nombre 
+     nomcientifico
+     clase 
+     orden 
+     familia
+     habitat
+     dieta 
+     longitud
+     color
+     numalas
    } 
  }
 '''
 
-class AutoTestCase(GraphQLTestCase):
+class InsectoTestCase(GraphQLTestCase):
     GRAPHQL_SCHEMA = schema
     def setUp(self):
-        self.auto1 = mixer.blend(Auto)
-        self.auto2 = mixer.blend(Auto)
-        self.auto3 = mixer.blend(Auto)
+        self.insecto1 = mixer.blend(Insecto)
+        self.insecto2 = mixer.blend(Insecto)
+        self.insecto3 = mixer.blend(Insecto)
 
-    def test_autos_query(self):
+    def test_Insectos_query(self):
         response = self.query(
-            AUTOS_QUERY,
+            INSECTOS_QUERY,
         )
         content = json.loads(response.content)
         #print(content)
         self.assertResponseNoErrors(response)
-        print ("query autos results ")
+        print ("query Insectos results ")
         print (content)
-        assert len(content['data']['autos']) == 3
+        assert len(content['data']['insecto']) == 3

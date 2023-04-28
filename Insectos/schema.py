@@ -46,7 +46,18 @@ class CreateInsecto(graphene.Mutation):
         numalas=graphene.String()
     #3
     def mutate(self, info , nombre, nomcientifico, clase, orden, familia, habitat, dieta, longitud, color, numalas):
-        insecto = Insecto(nombre=nombre, nomcientifico=nomcientifico, clase=clase, orden=orden, familia=familia, habitat=habitat, dieta=dieta, longitud=longitud, color=color, numalas=numalas)
+        insecto = Insecto(
+            nombre=nombre, 
+            nomcientifico=nomcientifico, 
+            clase=clase, 
+            orden=orden, 
+            familia=familia, 
+            habitat=habitat, 
+            dieta=dieta, 
+            longitud=longitud, 
+            color=color, 
+            numalas=numalas
+            )
         insecto.save()
 
         return CreateInsecto(
@@ -69,4 +80,4 @@ class CreateInsecto(graphene.Mutation):
 class Mutation(graphene.ObjectType):
     create_insecto = CreateInsecto.Field()
 
-schema=graphene.Schema(query=Query,mutation=Mutation)
+schema = graphene.Schema(query=Query,mutation=Mutation)
