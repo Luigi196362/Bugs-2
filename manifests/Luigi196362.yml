@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Luigi196362
+  name: luigi196362
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Luigi196362
+      app: luigi196362
   template:
     metadata:
       labels:
-        app: Luigi196362
+        app: luigi196362
     spec:
       containers:
-      - image: okteto.dev/Luigi196362:latest
-        name: Luigi196362
+      - image: okteto.dev/luigi196362:latest
+        name: luigi196362
         envFrom:
         - configMapRef:
-            name: Luigi196362-config
+            name: luigi196362-config
         livenessProbe:
           httpGet:
             path: /ht/
@@ -29,13 +29,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Luigi196362
+  name: luigi196362
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP  
   ports:
-  - name: "Luigi196362"
+  - name: "luigi196362"
     port: 8080
   selector:
-    app: Luigi196362
+    app: luigi196362
