@@ -8,6 +8,6 @@ data:
  PROD_SECRET_KEY: luigi196362
  PROD_DATABASE: kdobrxpj
  PROD_USER: kdobrxpj
- PROD_PASSWORD: bc45cfd8-9fe8-46bd-b2f1-828f001889d0
+ PROD_PASSWORD: eqzyq2KHIWv-52BEJSxJ9xQR2JAwtpTT
  PROD_HOST: balarama.db.elephantsql.com
  PROD_PORT: "5432"
