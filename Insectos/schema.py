@@ -10,7 +10,7 @@ class InsectoType(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
-    insectos = graphene.List(InsectoType)
+    Insectos = graphene.List(InsectoType)
 
     def resolve_insectos(self, info, **kwargs):
         return Insecto.objects.all()
@@ -46,7 +46,7 @@ class CreateInsecto(graphene.Mutation):
         numalas=graphene.String()
     #3
     def mutate(self, info , nombre, nomcientifico, clase, orden, familia, habitat, dieta, longitud, color, numalas):
-        insecto = Insecto(
+        Insectos = Insecto(
             nombre=nombre, 
             nomcientifico=nomcientifico, 
             clase=clase, 
@@ -58,26 +58,26 @@ class CreateInsecto(graphene.Mutation):
             color=color, 
             numalas=numalas
             )
-        insecto.save()
+        Insectos.save()
 
         return CreateInsecto(
-            id=insecto.id,
-            nombre=insecto.nombre,
-            nomcientifico=insecto.nomcientifico,
-            clase=insecto.clase,
-            orden=insecto.orden,
-            familia=insecto.familia,
-            habitat=insecto.habitat,
-            dieta=insecto.dieta,
-            longitud=insecto.longitud,
-            color=insecto.color,
-            numalas=insecto.numalas
+            id=Insecto.id,
+            nombre=Insectos.nombre,
+            nomcientifico=Insectos.nomcientifico,
+            clase=Insectos.clase,
+            orden=Insectos.orden,
+            familia=Insectos.familia,
+            habitat=Insectos.habitat,
+            dieta=Insectos.dieta,
+            longitud=Insectos.longitud,
+            color=Insectos.color,
+            numalas=Insectos.numalas
 
         )
 
 
 #4
 class Mutation(graphene.ObjectType):
-    create_insecto = CreateInsecto.Field()
+    create_Insectos = CreateInsecto.Field()
 
 schema = graphene.Schema(query=Query,mutation=Mutation)
