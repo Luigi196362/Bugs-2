@@ -12,7 +12,7 @@ class InsectoType(DjangoObjectType):
 class Query(graphene.ObjectType):
     Insectos = graphene.List(InsectoType)
 
-    def resolve_insectos(self, info, **kwargs):
+    def resolve_Insectos(self, info, **kwargs):
         return Insecto.objects.all()
     
     

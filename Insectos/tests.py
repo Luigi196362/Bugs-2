@@ -46,8 +46,8 @@ mutation createInsectosMutation($nombre: String, $nomcientifico: String, $clase:
 class InsectoTestCase(GraphQLTestCase):
     GRAPHQL_SCHEMA = schema
     def setUp(self):
-        self.insecto1 = mixer.blend(Insecto)
-        self.insecto2 = mixer.blend(Insecto)
+        self.Insecto1 = mixer.blend(Insecto)
+        self.Insecto2 = mixer.blend(Insecto)
 
     def test_Insectos_query(self):
         response = self.query(
