@@ -1,15 +1,15 @@
 from django.db import models
 
 class Insecto(models.Model):
-    nombre = models.TextField(blank=True)
-    nomcientifico = models.TextField(blank=True)
-    clase = models.TextField(blank=True)
-    orden = models.TextField(blank=True)
-    familia = models.TextField(blank=True)
-    habitat = models.TextField(blank=True)
-    dieta = models.TextField(blank=True)
-    longitud = models.TextField(blank=True)
-    color = models.TextField(blank=True)
-    numalas = models.TextField(blank=True)
+    nombre = models.TextField(default='',blank=False)
+    nomcientifico = models.TextField(default='',blank=False)
+    clase = models.TextField(default='',blank=False)
+    orden = models.TextField(default='',blank=False)
+    familia = models.TextField(default='',blank=False)
+    habitat = models.TextField(default='',blank=False)
+    dieta = models.TextField(default='',blank=False)
+    longitud = models.TextField(default='',blank=False)
+    color = models.TextField(default='',blank=False)
+    numalas = models.TextField(default='',blank=False)
 
 # Create your models here.

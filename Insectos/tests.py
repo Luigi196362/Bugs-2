@@ -13,7 +13,7 @@ from Insectos.models import Insecto
 
 INSECTOS_QUERY = '''
  {
-   Insecto {
+   Insectos {
      id
      nombre 
      nomcientifico
@@ -29,12 +29,12 @@ INSECTOS_QUERY = '''
  }
 '''
 
+
 class InsectoTestCase(GraphQLTestCase):
     GRAPHQL_SCHEMA = schema
     def setUp(self):
-        self.insecto1 = mixer.blend(Insecto)
-        self.insecto2 = mixer.blend(Insecto)
-        self.insecto3 = mixer.blend(Insecto)
+        self.Insecto1 = mixer.blend(Insecto)
+        self.Insecto2 = mixer.blend(Insecto)
 
     def test_Insectos_query(self):
         response = self.query(
@@ -45,4 +45,4 @@ class InsectoTestCase(GraphQLTestCase):
         self.assertResponseNoErrors(response)
         print ("query Insectos results ")
         print (content)
-        assert len(content['data']['insecto']) == 3
+        assert len(content['data']['Insectos']) == 2
